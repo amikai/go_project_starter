@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-option go_package = "hello/pb";
-
 package hello.v1;
 
+option go_package = "hello/pb";
+
 service HelloService {
-  rpc SayHello (SayHelloRequest) returns (SayHelloResponse) {}
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {}
 }
 
 message SayHelloRequest {
