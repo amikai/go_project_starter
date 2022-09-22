@@ -8,6 +8,7 @@ DOCKER_REPO = amikai
 build/hello:
 	cd $(ROOT)/src && $(GO) build -o $(DIST)/hello/server hello/server/main.go
 
+.PHONY: build/docker/hello
 build/docker/hello:
 	docker build -f $(ROOT)/docker/hello.dockerfile -t $(DOCKER_REPO)/hello:$(TAG) $(ROOT)/src
 
