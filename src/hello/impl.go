@@ -4,16 +4,14 @@ import (
 	"context"
 	"log"
 
-	"github.com/amikai/go_project_starter/src/hello/pb"
+	hellov1 "github.com/amikai/go_project_starter/src/internal/gen/hello/v1"
 )
 
-var _ pb.HelloServer = &Server{}
-
 type Server struct {
-	pb.UnimplementedHelloServer
+	hellov1.UnimplementedHelloServiceServer
 }
 
-func (s *Server) SayHello(ctx context.Context, req *pb.HelloRequest) (*pb.HelloReply, error) {
+func (s *Server) SayHello(ctx context.Context, req *hellov1.SayHelloRequest) (*hellov1.SayHelloResponse, error) {
 	log.Printf("Received: %v", req.GetName())
-	return &pb.HelloReply{Message: "Hello " + req.GetName()}, nil
+	return &hellov1.SayHelloResponse{Message: "Hello " + req.GetName()}, nil
 }

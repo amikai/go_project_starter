@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/amikai/go_project_starter/src/hello"
-	"github.com/amikai/go_project_starter/src/hello/pb"
+	hellov1 "github.com/amikai/go_project_starter/src/internal/gen/hello/v1"
 )
 
 var (
@@ -23,7 +23,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.RegisterHelloServer(s, &hello.Server{})
+	hellov1.RegisterHelloServiceServer(s, &hello.Server{})
 	log.Printf("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
