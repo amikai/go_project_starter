@@ -14,4 +14,5 @@ message SayHelloRequest {
 
 message SayHelloResponse {
   string message = 1;
+  string err = 2;
 }
